@@ -84,7 +84,7 @@ def onHeartbeat():
 
     if Parameters["Mode6"] == "Debug":
         Domoticz.Log("SNMP Value retrieved:"+snmpDataValue)
-    #Domoticz.Log("SNMP Value retrieved:"+str(snmpDataValue))
+    Domoticz.Log("SNMP Value retrieved:"+str(snmpDataValue))
 
 
     return True
@@ -183,7 +183,7 @@ def getSNMPvalue(ServerIP,snmpOID,snmpCommunity):
                     Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
 
                     return val.prettyPrint()
-                Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
+                #Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
 
 #
 # Parse an int and return None if no int is given
