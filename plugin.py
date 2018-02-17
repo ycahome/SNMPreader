@@ -86,7 +86,7 @@ def onHeartbeat():
 
     if Parameters["Mode6"] == "Debug":
         Domoticz.Log("SNMP Value retrieved:"+snmpDataValue)
-    Domoticz.Log("SNMP Value retrieved:"+snmpDataValue)
+    Domoticz.Log("SNMP Value retrieved:"+str(snmpDataValue))
 
 
     return True
