@@ -65,7 +65,7 @@ def onStart():
     snmpOID = str(Parameters["Mode1"])
     snmpCommunity = Parameters["Mode2"]
 
-    snmpDataValue = getSNMPvalue(ServerIP,snmpOID,snmpCommunity)
+    snmpDataValue = str(getSNMPvalue(ServerIP,snmpOID,snmpCommunity))
 
 
     Domoticz.Heartbeat(interval)
@@ -78,13 +78,13 @@ def onHeartbeat():
     snmpCommunity = Parameters["Mode2"]
 
     # Get new information and update the devices
-    snmpDataValue = getSNMPvalue(ServerIP,snmpOID,snmpCommunity)
+    snmpDataValue = str(getSNMPvalue(ServerIP,snmpOID,snmpCommunity))
 
     UpdateDevice(1,0,snmpDataValue)
 
     if Parameters["Mode6"] == "Debug":
         Domoticz.Log("SNMP Value retrieved:"+snmpDataValue)
-    Domoticz.Log("SNMP Value retrieved:"+str(snmpDataValue))
+    Domoticz.Log("SNMP Value retrieved:"+snmpDataValue)
 
 
     return True
