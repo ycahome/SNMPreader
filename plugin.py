@@ -182,7 +182,7 @@ def getSNMPvalue(ServerIP,snmpOID,snmpCommunity):
                 if Parameters["Mode6"] == "Debug":
                     Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
 
-                    return val.prettyPrint()
+                return val.prettyPrint()
                 Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
 
 #
