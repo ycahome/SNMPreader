@@ -31,7 +31,7 @@
 import Domoticz
 
 import sys
-sys.path.append('/usr/lib/python2.7/dist-packages/')
+sys.path.append('/usr/lib/python3/dist-packages/')
 from pysnmp.entity.rfc3413.oneliner import cmdgen
 
 
