@@ -2,7 +2,7 @@
 With this plugin you can bring one SNMP OID each time on your Domoticz server.
 
 Debian Requirements:
- - Install "python-pysnmp-common" with "sudo apt-get install python-pysnmp-common"
+ - Install "python3-pysnmp4" with "sudo apt-get install python3-pysnmp4"
 
 Domoticz Installation instructions:
  - Create Plugin Folder "SNMPreader" under "domoticz/plugins" folder
