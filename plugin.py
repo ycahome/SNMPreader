@@ -181,10 +181,9 @@ def getSNMPvalue(ServerIP,snmpOID,snmpCommunity):
             for name, val in varBinds:
                 if Parameters["Mode6"] == "Debug":
                     Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
-                Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
-
 
                     return val.prettyPrint()
+                Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
 
 #
 # Parse an int and return None if no int is given
