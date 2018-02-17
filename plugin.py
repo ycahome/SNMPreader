@@ -80,13 +80,11 @@ def onHeartbeat():
     # Get new information and update the devices
     snmpDataValue = getSNMPvalue(ServerIP,snmpOID,snmpCommunity)
 
-
-
     UpdateDevice(1,0,snmpDataValue)
 
     if Parameters["Mode6"] == "Debug":
         Domoticz.Log("SNMP Value retrieved:"+snmpDataValue)
-    Domoticz.Log("SNMP Value retrieved:"+str(snmpDataValue))
+    #Domoticz.Log("SNMP Value retrieved:"+str(snmpDataValue))
 
 
     return True
@@ -164,6 +162,7 @@ def getSNMPvalue(ServerIP,snmpOID,snmpCommunity):
     genData = cmdgen.CommunityData(str(snmpCommunity))
     if Parameters["Mode6"] == "Debug":
         Domoticz.Log("genData Loaded." + str(genData))
+    Domoticz.Log("genData Loaded." + str(genData))
 
     TTData = cmdgen.UdpTransportTarget((str(ServerIP), 161), retries=2)
     if Parameters["Mode6"] == "Debug":
