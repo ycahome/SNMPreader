@@ -162,7 +162,6 @@ def getSNMPvalue(ServerIP,snmpOID,snmpCommunity):
     genData = cmdgen.CommunityData(str(snmpCommunity))
     if Parameters["Mode6"] == "Debug":
         Domoticz.Log("genData Loaded." + str(genData))
-    Domoticz.Log("genData Loaded." + str(genData))
 
     TTData = cmdgen.UdpTransportTarget((str(ServerIP), 161), retries=2)
     if Parameters["Mode6"] == "Debug":
@@ -182,6 +181,7 @@ def getSNMPvalue(ServerIP,snmpOID,snmpCommunity):
             for name, val in varBinds:
                 if Parameters["Mode6"] == "Debug":
                     Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
+                Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
 
 
                     return val.prettyPrint()
