@@ -183,7 +183,7 @@ def getSNMPvalue(ServerIP,snmpOID,snmpCommunity):
                     Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
 
                     return val.prettyPrint()
-                #Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
+                Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
 
 #
 # Parse an int and return None if no int is given
