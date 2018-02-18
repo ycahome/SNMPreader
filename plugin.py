@@ -81,9 +81,6 @@ def onHeartbeat():
     snmpDataValue = str(getSNMPvalue(ServerIP,snmpOID,snmpCommunity))
 
     UpdateDevice(1,0,snmpDataValue)
-
-    if Parameters["Mode6"] == "Debug":
-        Domoticz.Log("SNMP Value retrieved:"+snmpDataValue)
     Domoticz.Log("SNMP Value retrieved:"+snmpDataValue)
 
 
@@ -121,11 +118,10 @@ def UpdateDevice(Unit, nValue, sValue):
 
     # Make sure that the Domoticz device still exists before updating it.
     # It can be deleted or never created!
-    if (Unit in Devices):
 
+    if (Unit in Devices):
         Devices[Unit].Update(nValue, str(sValue))
-        if Parameters["Mode6"] == "Debug":
-            Domoticz.Debug("Update " + str(nValue) + ":'" + str(sValue) + "' (" + Devices[Unit].Name + ")")
+        Domoticz.Debug("Update " + str(nValue) + ":'" + str(sValue) + "' (" + Devices[Unit].Name + ")")
 
 #############################################################################
 #                       Device specific functions                           #
@@ -136,8 +132,7 @@ def createDevices():
     # Are there any devices?
     if len(Devices) != 0:
         # Could be the user deleted some devices, so do nothing
-        if Parameters["Mode6"] == "Debug":
-            Domoticz.Debug("Devices Already Exist.")
+        Domoticz.Debug("Devices Already Exist.")
         return
 
     # Give the devices a unique unit number. This makes updating them more easy.
@@ -151,25 +146,17 @@ def createDevices():
 
 def getSNMPvalue(ServerIP,snmpOID,snmpCommunity):
 
-    if Parameters["Mode6"] == "Debug":
-        Domoticz.Log("var ." + str(ServerIP))
-        Domoticz.Log("var ." + str(snmpOID))
-        Domoticz.Log("var ." + str(snmpCommunity))
-
     cmdGen = cmdgen.CommandGenerator()
 
     #genData = cmdgen.CommunityData('public')
     genData = cmdgen.CommunityData(str(snmpCommunity))
-    if Parameters["Mode6"] == "Debug":
-        Domoticz.Log("genData Loaded." + str(genData))
+    Domoticz.Debug("genData Loaded." + str(genData))
 
     TTData = cmdgen.UdpTransportTarget((str(ServerIP), 161), retries=2)
-    if Parameters["Mode6"] == "Debug":
-        Domoticz.Log("TTData Loaded." + str(TTData))
+    Domoticz.Debug("TTData Loaded." + str(TTData))
 
     errorIndication, errorStatus, errorIndex, varBinds = cmdGen.getCmd(genData,TTData,snmpOID)
-    if Parameters["Mode6"] == "Debug":
-        Domoticz.Log("DATA Loaded." + str(varBinds))
+    Domoticz.Debug("DATA Loaded." + str(varBinds))
 
     # Check for errors and print out results
     if errorIndication:
@@ -179,11 +166,9 @@ def getSNMPvalue(ServerIP,snmpOID,snmpCommunity):
             Domoticz.Log('%s at %s' % (errorStatus.prettyPrint(),errorIndex and varBinds[int(errorIndex)-1] or '?'))
         else:
             for name, val in varBinds:
-                if Parameters["Mode6"] == "Debug":
-                    Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
+                Domoticz.Debug('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
 
                 return val.prettyPrint()
-                Domoticz.Log('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
 
 #
 # Parse an int and return None if no int is given
