@@ -58,8 +58,7 @@ def onStart():
     createDevices()
     if Parameters["Mode6"] == "Debug":
         DumpConfigToDebug()
-    DumpConfigToLog()
-
+    
 
     ServerIP = str(Parameters["Address"])
     snmpOID = str(Parameters["Mode1"])
@@ -102,17 +101,6 @@ def DumpConfigToDebug():
         Domoticz.Log("Device nValue:    " + str(Devices[x].nValue))
         Domoticz.Log("Device sValue:   '" + Devices[x].sValue + "'")
 
-def DumpConfigToLog():
-    for x in Parameters:
-        if Parameters[x] != "":
-            Domoticz.Log("'" + x + "':'" + str(Parameters[x]) + "'")
-    Domoticz.Log("Device count: " + str(len(Devices)))
-    for x in Devices:
-        Domoticz.Log("Device:           " + str(x) + " - " + str(Devices[x]))
-        Domoticz.Log("Device ID:       '" + str(Devices[x].ID) + "'")
-        Domoticz.Log("Device Name:     '" + Devices[x].Name + "'")
-        Domoticz.Log("Device nValue:    " + str(Devices[x].nValue))
-        Domoticz.Log("Device sValue:   '" + Devices[x].sValue + "'")
 
 def UpdateDevice(Unit, nValue, sValue):
 
