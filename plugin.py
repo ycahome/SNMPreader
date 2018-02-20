@@ -157,10 +157,10 @@ def getSNMPvalue(ServerIP,snmpOID,snmpCommunity):
 
     # Check for errors and print out results
     if errorIndication:
-        Domoticz.Log(str(errorIndication))
+        Domoticz.Error(str(errorIndication))
     else:
         if errorStatus:
-            Domoticz.Log('%s at %s' % (errorStatus.prettyPrint(),errorIndex and varBinds[int(errorIndex)-1] or '?'))
+            Domoticz.Error('%s at %s' % (errorStatus.prettyPrint(),errorIndex and varBinds[int(errorIndex)-1] or '?'))
         else:
             for name, val in varBinds:
                 Domoticz.Debug('%s = %s' % (name.prettyPrint(), val.prettyPrint()))
