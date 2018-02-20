@@ -12,6 +12,7 @@
         <param field="Address" label="Server IP" width="200px" required="true" default="192.168.1.1"/>
         <param field="Mode1" label="OID" width="200px" required="true" default="1.3.6.1.2.1.25.3.2.1.1.2"/>
         <param field="Mode2" label="Community" width="200px" required="true" default="public"/>
+        <param field="Mode4" label="Check Interval(seconds)" width="75px" required="true" default="60"/>
         <param field="Mode3" label="Domoticz TypeName" width="200px">
             <options>
                 <option label="Custom" value="Custom"/>
@@ -53,7 +54,7 @@ def onStart():
     global gdeviceTypeName
 
     gdeviceSuffix = "(SNMP)"
-    interval = 60
+    interval = Parameters["Mode4"]
 
     createDevices()
     if Parameters["Mode6"] == "Debug":
