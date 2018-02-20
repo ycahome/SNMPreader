@@ -2,12 +2,20 @@
 #
 #   SNMPreader Plugin
 #
-#   Ycahome, 2017
+#   Author: ycahome, 2017
 #   https://www.domoticz.com/forum
 #
 #
+#  version 1.0.0             : Initial
+#          1.1.0             : Removed unneeded loggin on debug mode
+#                            : Ficed to work with python 3
+#                            : Added interval attribute
+#                            : Minor Ther fixes
+#
+#
+##
 """
-<plugin key="SNMPreader" name="SNMP Value Reader" author="ycahome" version="1.0.0" wikilink="m" externallink="https://www.domoticz.com/forum/viewtopic.php?f=65">
+<plugin key="SNMPreader" name="SNMP Value Reader" author="ycahome" version="1.1.0" wikilink="m" externallink="https://www.domoticz.com/forum/viewtopic.php?f=65">
     <params>
         <param field="Address" label="Server IP" width="200px" required="true" default="192.168.1.1"/>
         <param field="Mode1" label="OID" width="200px" required="true" default="1.3.6.1.2.1.25.3.2.1.1.2"/>
