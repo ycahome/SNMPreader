@@ -54,7 +54,7 @@ def onStart():
     global gdeviceTypeName
 
     gdeviceSuffix = "(SNMP)"
-    interval = Parameters["Mode4"]
+    interval = int(Parameters["Mode4"])
 
     createDevices()
     if Parameters["Mode6"] == "Debug":
