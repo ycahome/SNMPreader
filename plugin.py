@@ -81,7 +81,7 @@ def onHeartbeat():
     snmpDataValue = str(getSNMPvalue(ServerIP,snmpOID,snmpCommunity))
 
     UpdateDevice(1,0,snmpDataValue)
-    Domoticz.Log("SNMP Value retrieved:"+snmpDataValue)
+    Domoticz.Log("SNMP Value (" + ServerIP + "/" + snmpCommunity + "/"+ snmpOID + ") retrieved:"+snmpDataValue)
 
 
     return True
