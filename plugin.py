@@ -7,7 +7,7 @@
 #
 #
 #  version 1.0.0             : Initial
-#          1.1.0             : Removed unneeded loggin on debug mode
+#          1.1.0             : Removed unneeded logging on debug mode
 #                            : Ficed to work with python 3
 #                            : Added interval attribute
 #                            : Minor Ther fixes
